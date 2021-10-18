@@ -29,11 +29,13 @@ namespace Vehiculos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabNewVehiculo = new MetroFramework.Controls.MetroTabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new MetroFramework.Controls.MetroButton();
             this.btnRegistrar = new MetroFramework.Controls.MetroButton();
             this.TextBoxTypeCard = new MetroFramework.Controls.MetroTextBox();
             this.TextBoxColorCar = new MetroFramework.Controls.MetroTextBox();
@@ -41,21 +43,20 @@ namespace Vehiculos
             this.TextBoxModelCar = new MetroFramework.Controls.MetroTextBox();
             this.TextBoxBrandCar = new MetroFramework.Controls.MetroTextBox();
             this.TextBoxIdCar = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelTypeCar = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelColorCar = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelYearCar = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelModelCar = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelBrandCar = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelIdCar = new MetroFramework.Controls.MetroLabel();
             this.tabRegistrosVehiculos = new MetroFramework.Controls.MetroTabPage();
-            this.btnCancelar = new MetroFramework.Controls.MetroButton();
+            this.dataGridViewRegistrosVehiculos = new System.Windows.Forms.DataGridView();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.metroLinkNuevoVehiculo = new MetroFramework.Controls.MetroLink();
             this.metroTabControl.SuspendLayout();
             this.tabNewVehiculo.SuspendLayout();
             this.tabRegistrosVehiculos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistrosVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl
@@ -64,7 +65,7 @@ namespace Vehiculos
             this.metroTabControl.Controls.Add(this.tabRegistrosVehiculos);
             this.metroTabControl.Location = new System.Drawing.Point(23, 86);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 0;
+            this.metroTabControl.SelectedIndex = 1;
             this.metroTabControl.Size = new System.Drawing.Size(754, 552);
             this.metroTabControl.TabIndex = 0;
             this.metroTabControl.UseSelectable = true;
@@ -80,12 +81,12 @@ namespace Vehiculos
             this.tabNewVehiculo.Controls.Add(this.TextBoxModelCar);
             this.tabNewVehiculo.Controls.Add(this.TextBoxBrandCar);
             this.tabNewVehiculo.Controls.Add(this.TextBoxIdCar);
-            this.tabNewVehiculo.Controls.Add(this.metroLabel6);
-            this.tabNewVehiculo.Controls.Add(this.metroLabel5);
-            this.tabNewVehiculo.Controls.Add(this.metroLabel4);
-            this.tabNewVehiculo.Controls.Add(this.metroLabel3);
-            this.tabNewVehiculo.Controls.Add(this.metroLabel2);
-            this.tabNewVehiculo.Controls.Add(this.metroLabel1);
+            this.tabNewVehiculo.Controls.Add(this.metroLabelTypeCar);
+            this.tabNewVehiculo.Controls.Add(this.metroLabelColorCar);
+            this.tabNewVehiculo.Controls.Add(this.metroLabelYearCar);
+            this.tabNewVehiculo.Controls.Add(this.metroLabelModelCar);
+            this.tabNewVehiculo.Controls.Add(this.metroLabelBrandCar);
+            this.tabNewVehiculo.Controls.Add(this.metroLabelIdCar);
             this.tabNewVehiculo.HorizontalScrollbarBarColor = true;
             this.tabNewVehiculo.HorizontalScrollbarHighlightOnWheel = false;
             this.tabNewVehiculo.HorizontalScrollbarSize = 10;
@@ -97,6 +98,35 @@ namespace Vehiculos
             this.tabNewVehiculo.VerticalScrollbarBarColor = true;
             this.tabNewVehiculo.VerticalScrollbarHighlightOnWheel = false;
             this.tabNewVehiculo.VerticalScrollbarSize = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(192, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(366, 41);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Garaje de César Martinez";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.AutoSize = true;
+            this.btnCancelar.BackColor = System.Drawing.Color.DimGray;
+            this.btnCancelar.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnCancelar.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(608, 330);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(104, 47);
+            this.btnCancelar.Style = MetroFramework.MetroColorStyle.White;
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseCustomBackColor = true;
+            this.btnCancelar.UseSelectable = true;
+            this.btnCancelar.UseStyleColors = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnRegistrar
             // 
@@ -114,6 +144,7 @@ namespace Vehiculos
             this.btnRegistrar.UseCustomBackColor = true;
             this.btnRegistrar.UseSelectable = true;
             this.btnRegistrar.UseStyleColors = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // TextBoxTypeCard
             // 
@@ -301,63 +332,63 @@ namespace Vehiculos
             this.TextBoxIdCar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TextBoxIdCar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel6
+            // metroLabelTypeCar
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(59, 442);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(39, 20);
-            this.metroLabel6.TabIndex = 7;
-            this.metroLabel6.Text = "Tipo:";
+            this.metroLabelTypeCar.AutoSize = true;
+            this.metroLabelTypeCar.Location = new System.Drawing.Point(59, 442);
+            this.metroLabelTypeCar.Name = "metroLabelTypeCar";
+            this.metroLabelTypeCar.Size = new System.Drawing.Size(39, 20);
+            this.metroLabelTypeCar.TabIndex = 7;
+            this.metroLabelTypeCar.Text = "Tipo:";
             // 
-            // metroLabel5
+            // metroLabelColorCar
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(59, 375);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(46, 20);
-            this.metroLabel5.TabIndex = 6;
-            this.metroLabel5.Text = "Color:";
+            this.metroLabelColorCar.AutoSize = true;
+            this.metroLabelColorCar.Location = new System.Drawing.Point(59, 375);
+            this.metroLabelColorCar.Name = "metroLabelColorCar";
+            this.metroLabelColorCar.Size = new System.Drawing.Size(46, 20);
+            this.metroLabelColorCar.TabIndex = 6;
+            this.metroLabelColorCar.Text = "Color:";
             // 
-            // metroLabel4
+            // metroLabelYearCar
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(59, 307);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(37, 20);
-            this.metroLabel4.TabIndex = 5;
-            this.metroLabel4.Text = "Año:";
+            this.metroLabelYearCar.AutoSize = true;
+            this.metroLabelYearCar.Location = new System.Drawing.Point(59, 307);
+            this.metroLabelYearCar.Name = "metroLabelYearCar";
+            this.metroLabelYearCar.Size = new System.Drawing.Size(37, 20);
+            this.metroLabelYearCar.TabIndex = 5;
+            this.metroLabelYearCar.Text = "Año:";
             // 
-            // metroLabel3
+            // metroLabelModelCar
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(59, 244);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(59, 20);
-            this.metroLabel3.TabIndex = 4;
-            this.metroLabel3.Text = "Modelo:";
+            this.metroLabelModelCar.AutoSize = true;
+            this.metroLabelModelCar.Location = new System.Drawing.Point(59, 244);
+            this.metroLabelModelCar.Name = "metroLabelModelCar";
+            this.metroLabelModelCar.Size = new System.Drawing.Size(59, 20);
+            this.metroLabelModelCar.TabIndex = 4;
+            this.metroLabelModelCar.Text = "Modelo:";
             // 
-            // metroLabel2
+            // metroLabelBrandCar
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(59, 180);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(50, 20);
-            this.metroLabel2.TabIndex = 3;
-            this.metroLabel2.Text = "Marca:";
+            this.metroLabelBrandCar.AutoSize = true;
+            this.metroLabelBrandCar.Location = new System.Drawing.Point(59, 180);
+            this.metroLabelBrandCar.Name = "metroLabelBrandCar";
+            this.metroLabelBrandCar.Size = new System.Drawing.Size(50, 20);
+            this.metroLabelBrandCar.TabIndex = 3;
+            this.metroLabelBrandCar.Text = "Marca:";
             // 
-            // metroLabel1
+            // metroLabelIdCar
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(59, 111);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(83, 20);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "N. Vehiculo:";
+            this.metroLabelIdCar.AutoSize = true;
+            this.metroLabelIdCar.Location = new System.Drawing.Point(59, 111);
+            this.metroLabelIdCar.Name = "metroLabelIdCar";
+            this.metroLabelIdCar.Size = new System.Drawing.Size(83, 20);
+            this.metroLabelIdCar.TabIndex = 2;
+            this.metroLabelIdCar.Text = "N. Vehiculo:";
             // 
             // tabRegistrosVehiculos
             // 
-            this.tabRegistrosVehiculos.Controls.Add(this.dataGridView1);
+            this.tabRegistrosVehiculos.Controls.Add(this.dataGridViewRegistrosVehiculos);
             this.tabRegistrosVehiculos.HorizontalScrollbarBarColor = true;
             this.tabRegistrosVehiculos.HorizontalScrollbarHighlightOnWheel = false;
             this.tabRegistrosVehiculos.HorizontalScrollbarSize = 10;
@@ -370,22 +401,40 @@ namespace Vehiculos
             this.tabRegistrosVehiculos.VerticalScrollbarHighlightOnWheel = false;
             this.tabRegistrosVehiculos.VerticalScrollbarSize = 10;
             // 
-            // btnCancelar
+            // dataGridViewRegistrosVehiculos
             // 
-            this.btnCancelar.AutoSize = true;
-            this.btnCancelar.BackColor = System.Drawing.Color.DimGray;
-            this.btnCancelar.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnCancelar.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(608, 330);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(104, 47);
-            this.btnCancelar.Style = MetroFramework.MetroColorStyle.White;
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseCustomBackColor = true;
-            this.btnCancelar.UseSelectable = true;
-            this.btnCancelar.UseStyleColors = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRegistrosVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewRegistrosVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRegistrosVehiculos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewRegistrosVehiculos.Location = new System.Drawing.Point(29, 18);
+            this.dataGridViewRegistrosVehiculos.Name = "dataGridViewRegistrosVehiculos";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRegistrosVehiculos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewRegistrosVehiculos.RowHeadersWidth = 51;
+            this.dataGridViewRegistrosVehiculos.RowTemplate.Height = 24;
+            this.dataGridViewRegistrosVehiculos.Size = new System.Drawing.Size(686, 457);
+            this.dataGridViewRegistrosVehiculos.TabIndex = 2;
+            this.dataGridViewRegistrosVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegistrosVehiculos_CellContentClick);
             // 
             // btnSalir
             // 
@@ -403,68 +452,35 @@ namespace Vehiculos
             this.btnSalir.UseCustomBackColor = true;
             this.btnSalir.UseSelectable = true;
             this.btnSalir.UseStyleColors = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // dataGridView1
+            // metroLinkNuevoVehiculo
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(740, 489);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(192, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(366, 41);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Garaje de César Martinez";
+            this.metroLinkNuevoVehiculo.Location = new System.Drawing.Point(226, 26);
+            this.metroLinkNuevoVehiculo.Name = "metroLinkNuevoVehiculo";
+            this.metroLinkNuevoVehiculo.Size = new System.Drawing.Size(120, 23);
+            this.metroLinkNuevoVehiculo.TabIndex = 16;
+            this.metroLinkNuevoVehiculo.Text = "Nuevo Vehiculo";
+            this.metroLinkNuevoVehiculo.UseSelectable = true;
+            this.metroLinkNuevoVehiculo.Click += new System.EventHandler(this.metroLinkNuevoVehiculo_Click);
             // 
             // frmVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 735);
+            this.Controls.Add(this.metroLinkNuevoVehiculo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.metroTabControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmVehiculo";
-            this.Text = "Vehiculos";
+            this.Text = "Garaje Vehiculos";
             this.Load += new System.EventHandler(this.frmVehiculo_Load);
             this.metroTabControl.ResumeLayout(false);
             this.tabNewVehiculo.ResumeLayout(false);
             this.tabNewVehiculo.PerformLayout();
             this.tabRegistrosVehiculos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistrosVehiculos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,22 +491,23 @@ namespace Vehiculos
         private MetroFramework.Controls.MetroTabControl metroTabControl;
         private MetroFramework.Controls.MetroTabPage tabNewVehiculo;
         private MetroFramework.Controls.MetroTabPage tabRegistrosVehiculos;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabelModelCar;
+        private MetroFramework.Controls.MetroLabel metroLabelBrandCar;
+        private MetroFramework.Controls.MetroLabel metroLabelIdCar;
         private MetroFramework.Controls.MetroTextBox TextBoxTypeCard;
         private MetroFramework.Controls.MetroTextBox TextBoxColorCar;
         private MetroFramework.Controls.MetroTextBox TextBoxYearCar;
         private MetroFramework.Controls.MetroTextBox TextBoxModelCar;
         private MetroFramework.Controls.MetroTextBox TextBoxBrandCar;
         private MetroFramework.Controls.MetroTextBox TextBoxIdCar;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabelTypeCar;
+        private MetroFramework.Controls.MetroLabel metroLabelColorCar;
+        private MetroFramework.Controls.MetroLabel metroLabelYearCar;
         private MetroFramework.Controls.MetroButton btnRegistrar;
         private MetroFramework.Controls.MetroButton btnCancelar;
         private MetroFramework.Controls.MetroButton btnSalir;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewRegistrosVehiculos;
         private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroLink metroLinkNuevoVehiculo;
     }
 }
