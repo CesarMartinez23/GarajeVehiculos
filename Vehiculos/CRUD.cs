@@ -11,7 +11,7 @@ namespace Vehiculos
     class CRUD
     {
         //Instanciar la clase Connection de la BD
-        private Connection connetion = new Connection();
+        private Connection connection = new Connection();
 
         //Metodo para selecionar los registros de la tabla de la BD
         public MySqlDataReader select(string query)
@@ -19,9 +19,21 @@ namespace Vehiculos
             MySqlDataReader dataReader;
 
             //Utilizar command de la clase Connection
-            connetion.command = new MySqlCommand(query, connetion.openConnection());
-            dataReader = connetion.command.ExecuteReader();
+            connection.command = new MySqlCommand(query, connection.openConnection());
+            dataReader = connection.command.ExecuteReader();
             return dataReader;
+        }
+
+        //Metodo Ejecutar consultas SQL para insertar, editar y eliminar un vehiculo.
+        public void executeQuery(string query)
+        {
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            connection.command = new MySqlCommand(query, connection.openConnection());
+            adapter.InsertCommand = connection.command;
+            adapter.InsertCommand.ExecuteNonQuery();
+            connection.command.Dispose();
+            connection.closeConnection();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Vehiculos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,12 +52,16 @@ namespace Vehiculos
             this.metroLabelIdCar = new MetroFramework.Controls.MetroLabel();
             this.tabRegistrosVehiculos = new MetroFramework.Controls.MetroTabPage();
             this.dataGridViewRegistrosVehiculos = new System.Windows.Forms.DataGridView();
+            this.actions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.delete = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.metroLinkNuevoVehiculo = new MetroFramework.Controls.MetroLink();
             this.metroTabControl.SuspendLayout();
             this.tabNewVehiculo.SuspendLayout();
             this.tabRegistrosVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistrosVehiculos)).BeginInit();
+            this.actions.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl
@@ -412,6 +417,7 @@ namespace Vehiculos
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewRegistrosVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewRegistrosVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRegistrosVehiculos.ContextMenuStrip = this.actions;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,7 +426,7 @@ namespace Vehiculos
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewRegistrosVehiculos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewRegistrosVehiculos.Location = new System.Drawing.Point(29, 18);
+            this.dataGridViewRegistrosVehiculos.Location = new System.Drawing.Point(35, 18);
             this.dataGridViewRegistrosVehiculos.Name = "dataGridViewRegistrosVehiculos";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -432,9 +438,34 @@ namespace Vehiculos
             this.dataGridViewRegistrosVehiculos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewRegistrosVehiculos.RowHeadersWidth = 51;
             this.dataGridViewRegistrosVehiculos.RowTemplate.Height = 24;
-            this.dataGridViewRegistrosVehiculos.Size = new System.Drawing.Size(686, 457);
+            this.dataGridViewRegistrosVehiculos.Size = new System.Drawing.Size(680, 457);
             this.dataGridViewRegistrosVehiculos.TabIndex = 2;
             this.dataGridViewRegistrosVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegistrosVehiculos_CellContentClick);
+            // 
+            // actions
+            // 
+            this.actions.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.actions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.edit,
+            this.delete});
+            this.actions.Name = "actions";
+            this.actions.Size = new System.Drawing.Size(211, 80);
+            // 
+            // edit
+            // 
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(210, 24);
+            this.edit.Text = "Editar";
+            this.edit.ToolTipText = "Edit Vehiculo";
+            this.edit.Click += new System.EventHandler(this.edit_Click);
+            // 
+            // delete
+            // 
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(210, 24);
+            this.delete.Text = "Eliminar";
+            this.delete.ToolTipText = "Delete Vehiculo";
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // btnSalir
             // 
@@ -481,6 +512,7 @@ namespace Vehiculos
             this.tabNewVehiculo.PerformLayout();
             this.tabRegistrosVehiculos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistrosVehiculos)).EndInit();
+            this.actions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,5 +541,8 @@ namespace Vehiculos
         private System.Windows.Forms.DataGridView dataGridViewRegistrosVehiculos;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroLink metroLinkNuevoVehiculo;
+        private MetroFramework.Controls.MetroContextMenu actions;
+        private System.Windows.Forms.ToolStripMenuItem edit;
+        private System.Windows.Forms.ToolStripMenuItem delete;
     }
 }

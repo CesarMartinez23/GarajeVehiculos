@@ -30,5 +30,17 @@ namespace Vehiculos
             frmvehiculo.MdiParent = this;
             frmvehiculo.Show();
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            frmVehiculo frmvehiculo = new frmVehiculo();
+            frmvehiculo.MdiParent = this;
+            frmvehiculo.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

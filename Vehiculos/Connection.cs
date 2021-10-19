@@ -14,6 +14,7 @@ namespace Vehiculos
 
 
         private MySqlConnection conn = 
+            //Mi password es "" vacia porque yo estpy usando Wampp entonces no le he asignado un password.
             new MySqlConnection("Server=localhost;Database=vehiculos;Uid=root;Pwd=; SSL MODE= None");
 
         public MySqlCommand command;

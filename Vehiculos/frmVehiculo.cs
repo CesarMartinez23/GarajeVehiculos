@@ -100,21 +100,99 @@ namespace Vehiculos
 
         private void dataGridViewRegistrosVehiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            metroTabControl.TabPages.Remove(tabRegistrosVehiculos);
             metroTabControl.TabPages.Add(tabNewVehiculo);
-            metroTabControl.TabPages[0].Text = "EDITAR VEHICULO";
+            metroTabControl.TabPages.Remove(tabRegistrosVehiculos);
 
-            action = "edit";
+            metroTabControl.TabPages[0].Text = "EDITAR VEHICULO";
             controlsEnable();
 
+            TextBoxIdCar.ReadOnly = true;
             TextBoxIdCar.Visible = true;
-            TextBoxIdCar.ReadOnly= true;
             metroLabelIdCar.Visible = true;
+            metroLinkNuevoVehiculo.Visible = false;
 
+            //Pasar los valores del DataGridView hacia los texbox
+            TextBoxIdCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[0].Value.ToString();
+            TextBoxBrandCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[1].Value.ToString();
+            TextBoxModelCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[2].Value.ToString();
+            TextBoxYearCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[3].Value.ToString();
+            TextBoxColorCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[4].Value.ToString();
+            TextBoxTypeCard.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[5].Value.ToString();
+
+            action = "edit";
+
+            TextBoxBrandCar.Focus();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+
+            if (TextBoxBrandCar.Text == "")
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Debe ingresar un dato en el campo Marca: !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TextBoxBrandCar.Focus();
+            }
+            else if (TextBoxModelCar.Text == "")
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Debe ingresar un dato en el campo Modelo: !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TextBoxModelCar.Focus();
+            }
+            else if (TextBoxYearCar.Text == "")
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Debe ingresar un dato en el campo Año: !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TextBoxYearCar.Focus();
+            }
+            else if (TextBoxColorCar.Text == "")
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Debe ingresar un dato en el campo Color: !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TextBoxColorCar.Focus();
+            }
+            else if (TextBoxTypeCard.Text == "")
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Debe ingresar un dato en el campo Tipo: !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TextBoxTypeCard.Focus();
+            }
+            else
+            {
+
+            
+            Vehiculo vehiculo = new Vehiculo();
+
+            //Evaluar la accion a realizar.
+            if(action == "edit")
+            {
+                vehiculo._idCar = Convert.ToInt32(TextBoxIdCar.Text);
+            }
+
+            vehiculo._brandCar = TextBoxBrandCar.Text;
+            vehiculo._modelCar = TextBoxModelCar.Text;
+            vehiculo._yearCar = TextBoxYearCar.Text;
+            vehiculo._colorCar = TextBoxColorCar.Text;
+            vehiculo._typeCar = TextBoxTypeCard.Text;
+
+            string messageGuardar = "¿Estas seguro que deseas guardar los datos del Vehiculo?";
+            if(MetroFramework.MetroMessageBox.Show(this , messageGuardar, "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //Llamar al metodo Guardar
+                if (vehiculo.newEditVehiculo(action))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Los datos del vehiculo se han guardado correctamente!", "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Los datos del vehiculo no se han guardado correctamente!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                clearControls();
+                controlsDisable();
+                fillDataGridView();
+
+                metroTabControl.TabPages.Remove(tabNewVehiculo);
+                metroTabControl.TabPages.Add(tabRegistrosVehiculos);
+                metroTabControl.TabPages[0].Text = "Lista de Vehiculos";
+
+            }
+
+            }
 
         }
 
@@ -126,10 +204,11 @@ namespace Vehiculos
 
             TextBoxIdCar.Visible = false;
             metroLabelIdCar.Visible = false;
+            metroLinkNuevoVehiculo.Visible = false;
 
             TextBoxBrandCar.Focus();
             action = "new";
-            controlsDisable();
+            controlsEnable();
             clearControls();
         }
 
@@ -156,6 +235,55 @@ namespace Vehiculos
                 metroTabControl.TabPages[0].Text = "VEHICULOS REGISTRADOS";
             }
             
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            metroTabControl.TabPages.Add(tabNewVehiculo);
+            metroTabControl.TabPages.Remove(tabRegistrosVehiculos);
+
+            metroTabControl.TabPages[0].Text = "EDITAR VEHICULO";
+            controlsEnable();
+
+            TextBoxIdCar.ReadOnly = true;
+            TextBoxIdCar.Visible = true;
+            metroLabelIdCar.Visible = true;
+
+            //Pasar los valores del DataGridView hacia los texbox
+            TextBoxIdCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[0].Value.ToString();
+            TextBoxBrandCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[1].Value.ToString();
+            TextBoxModelCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[2].Value.ToString();
+            TextBoxYearCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[3].Value.ToString();
+            TextBoxColorCar.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[4].Value.ToString();
+            TextBoxTypeCard.Text = dataGridViewRegistrosVehiculos.CurrentRow.Cells[5].Value.ToString();
+
+            action = "edit";
+
+            TextBoxBrandCar.Focus();
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            string messageDelete = "¿Estas seguro que deseas eliminar el registro del Vehiculo?";
+            if (MetroFramework.MetroMessageBox.Show(this, messageDelete, "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Vehiculo vehiculo = new Vehiculo();
+                vehiculo._idCar = Convert.ToInt32(dataGridViewRegistrosVehiculos.CurrentRow.Cells[0].Value);
+
+                //Llamando al metodo delete.
+                if (vehiculo.deleteVehiculo())
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "El registro del vehiculo se ha eliminado correctamente!", "CONFIRMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Actualizar el DataGridView
+                    fillDataGridView();
+                }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "El registro del vehiculo no se ha podido eliminado correctamente!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
